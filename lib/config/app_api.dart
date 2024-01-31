@@ -4,6 +4,7 @@ class AppApi {
   static const userinfoApi = '$baseUrl/api/info';
   static const userloginApi = '$baseUrl/api/login';
   static const userClassroom = '$baseUrl/api/classroom/userClassroom';
+  static const joinClassroom = '$baseUrl/api/classroom/join';
   static const usertoken =
       'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDYyMzk3NjMsImp0aSI6IjQyOTMiLCJpYXQiOjE3MDYxNTMzNjMsInN1YiI6IjQyOTMifQ.GXdcijIbDWX81SABg-pLD0lQIe7eQpX86IymLnJsjZRckpB4J4jSdmIHCMxj0ZkB3AHr9Vd1oJU4PSfD8uJJiw';
 }

@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     // TODO: implement initState
+    print('又点击了');
     super.initState();
     String token = context.read<AppRepo>().token ?? '';
     context.read<PostProvider>().getmyclass(token);
@@ -63,21 +64,24 @@ class _HomePageState extends State<HomePage> {
           title: Text('Enter your name'),
           content: TextField(
             onChanged: (value) {
-              // Save the input value
+              context.read<PostProvider>().classnum = value;
             },
           ),
           actions: <Widget>[
             TextButton(
               child: Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: () {},
             ),
             TextButton(
               child: Text('Submit'),
               onPressed: () {
                 // Do something with the input value
-                Navigator.of(context).pop();
+                context
+                    .read<PostProvider>()
+                    .joinClass(context.read<AppRepo>().token!)
+                    .then((value) {
+                  Navigator.of(context).pop();
+                });
               },
             ),
           ],
