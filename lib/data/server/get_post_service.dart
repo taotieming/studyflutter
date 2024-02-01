@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:study_flutter/config/app_api.dart';
 import 'package:study_flutter/data/model/myclass.dart';
 import 'package:study_flutter/data/server/base_service.dart';
-import 'package:study_flutter/provider/app_repo.dart';
 
 class GetPostService extends ServiceBase<List<Myclass>> {
   @override

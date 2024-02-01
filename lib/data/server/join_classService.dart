@@ -12,8 +12,6 @@ class JoinClassService extends ServiceBase {
       'inviteCode': classnum,
     };
 
-    final result = await post(body, AppApi.joinClassroom, token);
-    
-    
+    await post(body, AppApi.joinClassroom, token);
   }
 }

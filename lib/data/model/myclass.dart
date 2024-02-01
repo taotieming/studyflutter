@@ -27,7 +27,4 @@ class Myclass {
       coverUrl: json['coverUrl'],
       fileId: json['fileId'],
       start_at: json['start_at']);
-  // owner: json['owner'] == null ? null : User.fromJson(json['owner']),
-  // date: json['date'] == null ? null : DateTime.parse(json['date']),
-  // image: json['image']);
 }

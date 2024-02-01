@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:study_flutter/config/app_api.dart';
 import 'package:http/http.dart' as http;
-import 'package:study_flutter/provider/app_repo.dart';
 
 abstract class ServiceBase<T> {
   Future<T> call();
@@ -11,11 +9,11 @@ abstract class ServiceBase<T> {
   Uri _getUrl(String url) => Uri.parse(url);
 
 // get请求
-  Future<Map<String, dynamic>> get(String apiurl,String? usertoken) async {
-
+  Future<Map<String, dynamic>> get(String apiurl, String? usertoken) async {
     try {
       // response = await http.get(apiurl);
-      return _handleResponse(await Myrequest(token: usertoken).get(_getUrl(apiurl)));
+      return _handleResponse(
+          await Myrequest(token: usertoken).get(_getUrl(apiurl)));
     } catch (e) {
       throw Exception(e);
       // return _handleResponse(await http.get(_getUrl(apiurl)));
@@ -41,7 +39,6 @@ abstract class ServiceBase<T> {
     }
     if (response.statusCode == 500) {
       return jsonDecode(response.body);
-
     } else {
       throw Exception();
     }

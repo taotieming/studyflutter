@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:study_flutter/components/post_item.dart';
 import 'package:study_flutter/components/toolbar.dart';
-import 'package:study_flutter/config/app_routes.dart';
 import 'package:study_flutter/config/app_string.dart';
 import 'package:study_flutter/provider/app_repo.dart';
 import 'package:study_flutter/provider/post_provider.dart';

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:study_flutter/components/app_textfield.dart';
 import 'package:study_flutter/provider/app_repo.dart';
@@ -42,19 +45,27 @@ class NewPostModelpage extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          Container(
-            width: 200,
-            height: 200,
-            decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
-                  width: 2,
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(16))),
-            child: Center(
-              child: Text('add image'),
-            ),
-          ),
+          Consumer<PostProvider>(
+              builder: (context, value, child) => GestureDetector(
+                  onTap: () {
+                    context.read<PostProvider>().pickImage(ImageSource.gallery);
+                  },
+                  child: Container(
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(16))),
+                      child: value.imagepath == null
+                          ? Center(
+                              child: Text('add image'),
+                            )
+                          : Image.file(
+                              File(value.imagepath!),
+                            )))),
           SizedBox(
             height: 16,
           ),

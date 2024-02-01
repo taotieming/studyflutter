@@ -17,6 +17,6 @@ class CreatePostService extends ServiceBase<void> {
     if (image != null) {
       body['image'] = image!;
     }
-    final result = await post(body, AppApi.joinClassroom, token);
+    await post(body, AppApi.joinClassroom, token);
   }
 }
