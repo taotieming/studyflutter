@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart' as parser;
 
 abstract class ServiceBase<T> {
   Future<T> call();
@@ -29,6 +30,19 @@ abstract class ServiceBase<T> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+// 上传图片
+  Future<Map<String, dynamic>> upload(
+      String apiUrl, String fieldName, String path,
+      {String? token}) async {
+    final client = http.MultipartRequest('post', _getUrl(apiUrl));
+    if (token != null) {
+      client.headers.addAll({'Authorization': token});
+    }
+    client.files.add(await http.MultipartFile.fromPath(fieldName, path,
+        contentType: parser.MediaType('image', 'jpeg')));
+    return _handleResponse(await http.Response.fromStream(await client.send()));
   }
 
 //  用来处理，网络请求的返回信息。

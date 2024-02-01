@@ -63,8 +63,25 @@ class NewPostModelpage extends StatelessWidget {
                           ? Center(
                               child: Text('add image'),
                             )
-                          : Image.file(
-                              File(value.imagepath!),
+                          : ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(16)),
+                              child: Stack(children: [
+                                Image.file(
+                                  File(value.imagepath!),
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      print('delete');
+                                      context
+                                          .read<PostProvider>()
+                                          .deleteImage();
+                                    },
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.white,
+                                    ))
+                              ]),
                             )))),
           SizedBox(
             height: 16,
