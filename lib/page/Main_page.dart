@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:study_flutter/components/new_post_model.dart';
 import 'package:study_flutter/config/app_icons.dart';
+import 'package:study_flutter/page/chat_page.dart';
 import 'package:study_flutter/page/home_page.dart';
 import 'package:study_flutter/page/profile_page.dart';
 import 'package:study_flutter/styles/app_colors.dart';
@@ -51,9 +52,7 @@ class _MainPageState extends State<MainPage> {
     const Center(
       child: Text('add'),
     ),
-    const Center(
-      child: Text('message'),
-    ),
+    const ChatPage(),
     const ProfilePage(),
   ];
 }
