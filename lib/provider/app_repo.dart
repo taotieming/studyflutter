@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:study_flutter/data/model/chat.dart';
 import 'package:study_flutter/data/model/user.dart';

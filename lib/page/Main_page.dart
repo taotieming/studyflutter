@@ -6,7 +6,6 @@ import 'package:study_flutter/page/chat_page.dart';
 import 'package:study_flutter/page/home_page.dart';
 import 'package:study_flutter/page/profile_page.dart';
 import 'package:study_flutter/styles/app_colors.dart';
-
 import '../components/bottom_navigation_item.dart';
 
 class MainPage extends StatefulWidget {
